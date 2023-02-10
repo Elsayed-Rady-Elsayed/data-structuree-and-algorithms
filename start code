@@ -1,0 +1,32 @@
+#include <iostream>
+#include<vector>
+#include<algorithm>
+using namespace std;
+template<class t1, class t2>
+auto linearSearch(t1 seq, int Size, t2 value) {
+    for (int i = 0; i < Size; i++) {
+        if (value == seq[i]) {
+            return make_pair(true, i);
+            break;
+        }
+    }
+    return make_pair(false, -1);
+}
+template<class t1, class t2>
+auto binarySearch(t1 seq, int Size, t2 value) {
+    int start = 0, End = Size - 1;
+    while (start <= End) {
+        int middle = (start + End) / 2;
+        if (value > seq[middle])start = middle + 1;
+        else if (value < seq[middle])End = middle - 1;
+        else if (value == seq[middle]) {
+            return make_pair(true, middle);
+        }
+    }
+    return make_pair(false, -1);
+}
+int main()
+{
+   
+    return 0;
+}
