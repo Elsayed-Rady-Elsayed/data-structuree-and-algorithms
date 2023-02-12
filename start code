@@ -1,7 +1,12 @@
-#include <iostream>
-#include<vector>
-#include<algorithm>
-using namespace std;
+/// <summary>
+/// linear search algorithm
+/// </summary>
+/// <typeparam name="t1"></typeparam>
+/// <typeparam name="t2"></typeparam>
+/// <param name="seq"></param>
+/// <param name="Size"></param>
+/// <param name="value"></param>
+/// <returns></returns>
 template<class t1, class t2>
 auto linearSearch(t1 seq, int Size, t2 value) {
     for (int i = 0; i < Size; i++) {
@@ -12,6 +17,15 @@ auto linearSearch(t1 seq, int Size, t2 value) {
     }
     return make_pair(false, -1);
 }
+/// <summary>
+/// binary search algorithm
+/// </summary>
+/// <typeparam name="t1"></typeparam>
+/// <typeparam name="t2"></typeparam>
+/// <param name="seq"></param>
+/// <param name="Size"></param>
+/// <param name="value"></param>
+/// <returns></returns>
 template<class t1, class t2>
 auto binarySearch(t1 seq, int Size, t2 value) {
     int start = 0, End = Size - 1;
@@ -25,8 +39,27 @@ auto binarySearch(t1 seq, int Size, t2 value) {
     }
     return make_pair(false, -1);
 }
-int main()
-{
-   
-    return 0;
+/// <summary>
+/// function to find pattern it take the string and pattern and its sizes
+/// </summary>
+/// <typeparam name="t1"></typeparam>
+/// <param name="fullStr"></param>
+/// <param name="fullStrLength"></param>
+/// <param name="pattern"></param>
+/// <param name="patternLenth"></param>
+/// <returns></returns>
+template<class t1>
+auto niveSearch(t1 fullStr,int fullStrLength, t1 pattern,int patternLenth) {
+    int i = 0, j = 0;
+    for (i = 0; i < fullStrLength; i++) {
+        for (j = 0; j < patternLenth; j++) {
+            if (pattern[j] != fullStr[i + j]) {
+                break;
+            }
+        }
+        if (j == patternLenth) {
+            return true;
+        }
+    }
+    return false;
 }
